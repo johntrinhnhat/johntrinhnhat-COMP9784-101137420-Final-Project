@@ -18,3 +18,5 @@ const LicenseSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
+
+export const License = mongoose.model("License", LicenseSchema);
