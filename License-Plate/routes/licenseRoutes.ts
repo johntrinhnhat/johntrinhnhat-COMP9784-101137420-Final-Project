@@ -1,5 +1,9 @@
 import express from "express";
-import { assignLP, revokeLP, verifyLP } from "../controllers/licenseControllers";
+import {
+  assignLP,
+  revokeLP,
+  verifyLP,
+} from "../controllers/licenseControllers";
 
 export const router = express.Router();
 

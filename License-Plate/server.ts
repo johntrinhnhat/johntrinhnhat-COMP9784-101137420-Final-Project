@@ -12,10 +12,11 @@ const RateLimit = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100,
 });
-const app = express();
 
+const app = express();
 connectDB();
 
+//Middleware
 app.use(helmet());
 app.use(compression());
 app.use(express.json());
