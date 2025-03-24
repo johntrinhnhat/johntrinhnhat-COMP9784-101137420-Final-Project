@@ -17,7 +17,7 @@ exports.connectDB = void 0;
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const mongoose_1 = __importDefault(require("mongoose"));
-const MONGODB_URL = String((_a = process.env.MONGODB_URL) === null || _a === void 0 ? void 0 : _a.replace("<db_password>", String(process.env.MONGODB_PASSWORD)));
+const MONGODB_URL = String((_a = process.env.MONGODB_URL) === null || _a === void 0 ? void 0 : _a.replace("<db_password>", String(process.env.MONGODB_PASSWORD)).replace("<db_username>", String(process.env.MONGODB_USERNAME)));
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield mongoose_1.default.connect(MONGODB_URL);
