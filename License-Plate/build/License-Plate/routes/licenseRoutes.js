@@ -7,4 +7,4 @@ exports.router = void 0;
 const express_1 = __importDefault(require("express"));
 const licenseControllers_1 = require("../controllers/licenseControllers");
 exports.router = express_1.default.Router();
-exports.router.put("/licensePlates/assign/:vin", licenseControllers_1.generateLicensePlate);
+exports.router.get("/", licenseControllers_1.getLP);

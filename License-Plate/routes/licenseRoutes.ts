@@ -1,12 +1,18 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import {
   assignLP,
   revokeLP,
+  // verifyLP,
+  getLP,
+  getLPAssigned,
   verifyLP,
 } from "../controllers/licenseControllers";
+import { validateLicensePlate, validateVin } from "../middlewares/validators";
 
 export const router = express.Router();
 
-router.put("/licensePlates/assign/:vin", assignLP);
-router.put("/licensePlates/revoke/:vin", revokeLP);
-router.put("/licensePlates/verify/:vin", verifyLP);
+router.get("/", getLP);
+router.get("/assigned", getLPAssigned);
+router.get("/verify/:licensePlate", validateLicensePlate, verifyLP);
+router.put("/assign/:vin", validateVin, assignLP);
+router.post("/revoke/:vin", revokeLP);
