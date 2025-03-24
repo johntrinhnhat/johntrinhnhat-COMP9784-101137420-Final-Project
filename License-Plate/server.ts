@@ -1,28 +1,35 @@
 import dotenv from "dotenv";
 dotenv.config();
+import express, { Request, Response, NextFunction } from "express";
 import morgan from "morgan";
-import express from "express";
 import helmet from "helmet";
 import compression from "compression";
-import rateLimit from "express-rate-limit";
-import { connectDB } from "../User-Sign-Up/config/db";
+import { connectDB } from "./config/mongodb";
 import { router } from "../License-Plate/routes/licenseRoutes";
+import { RateLimit } from "./middlewares/rateLimit";
+import { authAPI } from "./middlewares/authApi";
 
-const RateLimit = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100,
-});
-
+// APP AND DATABASE
 const app = express();
 connectDB();
 
 //Middleware
+app.use(express.json());
+app.use(authAPI);
 app.use(helmet());
 app.use(compression());
-app.use(express.json());
-app.use(morgan("dev"));
 app.use(RateLimit);
-app.use(router);
+app.use(morgan("dev"));
+
+app.use("/LP", router);
+
+// app.use((err: Error, req: Request, res: Response, next: NextFunction): any => {
+//   console.error(err.stack);
+//   return res.status(500).json({
+//     status: "error",
+//     message: err.message || "Request timed out.",
+//   });
+// });
 
 const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 app.listen(PORT, () => {
@@ -30,6 +37,8 @@ app.listen(PORT, () => {
   process.on("SIGTERM", shutdown);
   process.on("SIGINT", shutdown);
 });
+
+// Error handling middleware
 
 function shutdown() {
   console.log(`The server is shutting down ...`);
