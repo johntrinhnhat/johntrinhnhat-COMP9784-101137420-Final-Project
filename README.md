@@ -1,12 +1,12 @@
 # COMP9784 Final Project
 
-📌 Project Overview
+## 📌 Project Overview
 
-This project implements a backend API using Express.js with database integration. It includes user authentication, authorization, and license plate management with proper data validation and security measures.
+This project implements a backend API using Express.js with MongoDB Atlas database & mongoose integration. It includes user authentication, authorization, and license plate management with proper data validation and security measures.
 
-✅ Implemented Features (as per assignment requirements)
+✅ Implemented Features
 
-🔹 Part 1: User Sign Up Backend
+## Part 1: User Sign Up Backend
 
 📝 User Registration Table:
 
@@ -44,13 +44,13 @@ Functionality:
 
 Generates and sends a new activation token if the email is not verified.
 
-🔹 Part 2: License Plate Backend
+## Part 2: License Plate Backend
 
 📝 License Plate Assignment Table:
 
 Fields: License Plate, VIN (validated), Date Created.
 
-🔹 License Plate Assignment API Endpoint:
+🔹 API Endpoint:
 
 Route: PUT /licensePlates/assign/:vin
 
@@ -76,7 +76,7 @@ Functionality:
 
 Checks if a given license plate is assigned or available.
 
-🔒 Security & ⚡ Performance Enhancements
+## 🔒 Security & ⚡ Performance Enhancements
 
 API Security:
 
@@ -94,7 +94,7 @@ Enabled response compression.
 
 Implemented rate limiting to prevent abuse.
 
-⚙️ Setup Instructions
+## ⚙️ Setup Instructions
 
 🔧 Prerequisites:
 
@@ -104,27 +104,22 @@ Node.js (Latest LTS version)
 
 MongoDB or PostgreSQL (based on your database choice)
 
-🚀 Installation Steps:
+## 🚀 Installation Steps:
 
 1️⃣ Clone the repository:
 
-2️⃣ Navigate to the project directory:
-
-cd COMP9784-YOUR_STUDENT_ID-Final-Project
+2️⃣ Navigate to the project root directory:
 
 3️⃣ Install dependencies:
 
-npm install
+`npm install`
 
-4️⃣ Set up environment variables:
+4️⃣ Set up environment variables: Create a .env file in the root directory.
 
-Create a .env file in the root directory.
-
-Add necessary variables:
 
 5️⃣ Run the server:
 
-npm start dev
+`npm start dev`
 
 📤 Submission Details
 
