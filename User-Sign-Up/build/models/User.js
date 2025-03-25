@@ -12,5 +12,5 @@ const UserSchema = new mongoose_1.default.Schema({
     password: String,
     dateCreated: { type: Date, default: Date.now },
     emailVerified: { type: Boolean, default: false },
-});
+}, { collection: "Users" });
 exports.User = mongoose_1.default.model("User", UserSchema);

@@ -1,8 +1,10 @@
 import express, { Request, Response } from "express";
-import { signup, activateAccount, resendActivationToken } from "../controllers/authControllers";
+import { signup, activateAccount, resendActivationToken, getUsers } from "../controllers/authControllers";
 
 export const router = express.Router();
-    
+
+
+router.get("/users", getUsers)
 router.put("/user/signup", signup);
-router.get("/activate/:email/:activationToken", activateAccount);
-router.get("/sendActivationToken/:email", resendActivationToken);
+router.get("/user/activate/:email/:activationToken", activateAccount);
+router.get("/user/sendActivationToken/:email", resendActivationToken);

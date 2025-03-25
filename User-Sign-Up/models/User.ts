@@ -7,6 +7,6 @@ const UserSchema = new mongoose.Schema({
   password: String,
   dateCreated: { type: Date, default: Date.now },
   emailVerified: { type: Boolean, default: false },
-});
+}, {collection: "Users"});
 
 export const User = mongoose.model("User", UserSchema);

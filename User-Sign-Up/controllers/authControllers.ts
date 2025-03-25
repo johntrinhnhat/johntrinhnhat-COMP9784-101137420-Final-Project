@@ -4,6 +4,21 @@ import jwt from "jsonwebtoken";
 import { User } from "../models/User";
 import { sendEmail } from "../config/mailer";
 
+export const getUsers = async (req: Request, res: Response): Promise<any> => {
+  const users = await User.find();
+  if (users.length === 0)
+    return res.status(404).json({
+      status: "fail",
+      message: "No users found !",
+    });
+
+  return res.status(200).json({
+    status: "success",
+    total: users.length,
+    data: users,
+  });
+};
+
 export const signup = async (req: Request, res: Response): Promise<any> => {
   try {
     const { firstName, lastName, email, password } = req.body;
