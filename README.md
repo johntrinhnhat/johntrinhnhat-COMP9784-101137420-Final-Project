@@ -21,7 +21,7 @@ This project implements a backend API using Express.js with ***MongoDB Atlas*** 
 
 ## 🔹API Endpoint:
 
-### > Route: POST /user/signup
+> POST localhost:3000/user/signup
 
 #### Functionality:
 
@@ -33,7 +33,7 @@ This project implements a backend API using Express.js with ***MongoDB Atlas*** 
 
 + Sends an email with an activation link.
 
-> Route: GET /user/activate/:email/:activationToken
+> GET localhost:3000/user/activate/:email/:activationToken
 
 #### Functionality:
 
@@ -41,7 +41,7 @@ This project implements a backend API using Express.js with ***MongoDB Atlas*** 
 
 + Updates the Email Verified field upon successful validation.
 
-> Route: GET /user/sendActivationToken/:email
+> GET localhost:3000/user/sendActivationToken/:email
 
 #### Functionality:
 
@@ -55,7 +55,7 @@ Fields: License Plate, VIN (validated), Date Created.
 
 ## 🔹API Endpoint:
 
-> Route: PUT /licensePlates/assign/:vin
+> PUT localhost:3000/licensePlates/assign/:vin
 
 #### Functionality:
 
@@ -63,13 +63,13 @@ Fields: License Plate, VIN (validated), Date Created.
 
 + Ensures VIN validation (17 characters, no I, O, or Q).
 
-> Route: POST /licensePlates/revoke/:vin
+> POST localhost:3000/licensePlates/revoke/:vin
 
 #### Functionality:
 
 + Revokes the assigned license plate from the given VIN.
 
-> Route: GET /licensePlates/verify/:licensePlate
+> GET localhost:3000/licensePlates/verify/:licensePlate
 
 #### Functionality:
 
