@@ -15,41 +15,39 @@ This project implements a backend API using Express.js with ***MongoDB Atlas*** 
     lastName: "Trinh",
     email: "khoi.trinh@gmail.com",
     password: "ABCD1234",
-    emailVerified: false,
+    emailVerified: false
 }`
 
 
-🔹 User Sign-Up API Endpoint:
+## API Endpoint:
 
 > Route: POST /user/signup
 
-Functionality:
+### Functionality:
 
-Stores user details in the database.
++ Stores user details in the database.
 
-Hashes the password before saving.
++ Hashes the password before saving.
 
-Generates a JWT activation token.
++ Generates a JWT activation token.
 
-Sends an email with an activation link.
++ Sends an email with an activation link.
 
-🔹 User Activation API Endpoint:
 
 > Route: GET /user/activate/:email/:activationToken
 
-Functionality:
+### Functionality:
 
-Validates and decodes the activation token.
++ Validates and decodes the activation token.
 
-Updates the Email Verified field upon successful validation.
++ Updates the Email Verified field upon successful validation.
 
-🔹 Resend Activation Token API Endpoint:
 
 > Route: GET /user/sendActivationToken/:email
 
-Functionality:
+### Functionality:
 
-Generates and sends a new activation token if the email is not verified.
++ Generates and sends a new activation token if the email is not verified.
 
 # **♥ PROJECT 2: License Plate Backend**
 
