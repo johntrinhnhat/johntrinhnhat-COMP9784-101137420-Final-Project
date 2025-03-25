@@ -8,7 +8,7 @@ This project implements a backend API using Express.js with ***MongoDB Atlas*** 
 
 # **♥ PROJECT 1: User Sign-Up Backend**
 
-📝 User Registration Table (collection):
+## 📝 User Registration Table (collection):
 
 `{
     firstName: "Khoi",
@@ -19,7 +19,7 @@ This project implements a backend API using Express.js with ***MongoDB Atlas*** 
 }`
 
 
-## API Endpoint:
+## 🔹API Endpoint:
 
 > Route: POST /user/signup
 
@@ -33,7 +33,6 @@ This project implements a backend API using Express.js with ***MongoDB Atlas*** 
 
 + Sends an email with an activation link.
 
-
 > Route: GET /user/activate/:email/:activationToken
 
 ### Functionality:
@@ -41,7 +40,6 @@ This project implements a backend API using Express.js with ***MongoDB Atlas*** 
 + Validates and decodes the activation token.
 
 + Updates the Email Verified field upon successful validation.
-
 
 > Route: GET /user/sendActivationToken/:email
 
@@ -51,63 +49,59 @@ This project implements a backend API using Express.js with ***MongoDB Atlas*** 
 
 # **♥ PROJECT 2: License Plate Backend**
 
-📝 License Plate Assignment Table:
+## 📝 License Plate Assignment Table:
 
 Fields: License Plate, VIN (validated), Date Created.
 
-🔹 License Plate Assignment API Endpoint:
+## 🔹API Endpoint:
 
-Route: PUT /licensePlates/assign/:vin
+> Route: PUT /licensePlates/assign/:vin
 
-Functionality:
+### Functionality:
 
-Assigns the next available license plate to a given VIN.
++ Assigns the next available license plate to a given VIN.
 
-Ensures VIN validation (17 characters, no I, O, or Q).
++ Ensures VIN validation (17 characters, no I, O, or Q).
 
-🔹 License Plate Revocation API Endpoint:
+> Route: POST /licensePlates/revoke/:vin
 
-Route: POST /licensePlates/revoke/:vin
+### Functionality:
 
-Functionality:
++ Revokes the assigned license plate from the given VIN.
 
-Revokes the assigned license plate from the given VIN.
+> Route: GET /licensePlates/verify/:licensePlate
 
-🔹 License Plate Verification API Endpoint:
+### Functionality:
 
-Route: GET /licensePlates/verify/:licensePlate
-
-Functionality:
-
-Checks if a given license plate is assigned or available.
++ Checks if a given license plate is assigned or available.
 
 ## 🔒 Security & ⚡ Performance Enhancements
 
-API Security:
++ API Security:
 
-Implemented API Keys for restricted access.
++ Implemented API Keys for restricted access.
 
-Used Helmet for security headers.
++ Used Helmet for security headers.
 
-Input Validation:
++ Input Validation:
 
-Regular expressions to validate email, VIN, and license plate formats.
++ Regular expressions to validate email, VIN, and license plate formats.
 
-Performance Optimization:
++ Performance Optimization:
 
-Enabled response compression.
++ Enabled response compression.
 
-Implemented rate limiting to prevent abuse.
++ Implemented rate limiting to prevent abuse.
 
 ## ⚙️ Setup Instructions
 
 ### 🔧 Prerequisites:
 
-Ensure you have the following installed:
++ Ensure you have the following installed:
 
-Node.js (Latest LTS version)
++ Node.js (Latest LTS version)
 
-MongoDB Atlas (or a local MongoDB instance)
++ MongoDB Atlas (or a local MongoDB instance)
 
 ### 🚀 Installation Steps:
 
