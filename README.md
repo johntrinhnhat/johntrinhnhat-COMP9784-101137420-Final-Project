@@ -1,4 +1,4 @@
-COMP9784 Final Project
+# COMP9784 Final Project
 
 📌 Project Overview
 
