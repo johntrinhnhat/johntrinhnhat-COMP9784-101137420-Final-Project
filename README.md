@@ -2,19 +2,26 @@
 
 ## 📌 Project Overview
 
-This project implements a backend API using Express.js with MongoDB Atlas database & mongoose integration. It includes user authentication, authorization, and license plate management with proper data validation and security measures.
+This project implements a backend API using Express.js with ***MongoDB Atlas*** and ***Mongoose*** integration. It includes user authentication, authorization, and license plate management with proper data validation and security measures.
 
-✅ Implemented Features
+## ✅ Implemented Features
 
-## Part 1: User Sign Up Backend
+# **♥ PROJECT 1: User Sign-Up Backend**
 
-📝 User Registration Table:
+📝 User Registration Table (collection):
 
-Fields: First Name, Last Name, Email, Password (hashed), Date Created, Email Verified.
+`{
+    firstName: "Khoi",
+    lastName: "Trinh",
+    email: "khoi.trinh@gmail.com",
+    password: "ABCD1234",
+    emailVerified: false,
+}`
+
 
 🔹 User Sign-Up API Endpoint:
 
-Route: POST /user/signup
+> Route: POST /user/signup
 
 Functionality:
 
@@ -28,7 +35,7 @@ Sends an email with an activation link.
 
 🔹 User Activation API Endpoint:
 
-Route: GET /user/activate/:email/:activationToken
+> Route: GET /user/activate/:email/:activationToken
 
 Functionality:
 
@@ -38,19 +45,19 @@ Updates the Email Verified field upon successful validation.
 
 🔹 Resend Activation Token API Endpoint:
 
-Route: GET /user/sendActivationToken/:email
+> Route: GET /user/sendActivationToken/:email
 
 Functionality:
 
 Generates and sends a new activation token if the email is not verified.
 
-## Part 2: License Plate Backend
+# **♥ PROJECT 2: License Plate Backend**
 
 📝 License Plate Assignment Table:
 
 Fields: License Plate, VIN (validated), Date Created.
 
-🔹 API Endpoint:
+🔹 License Plate Assignment API Endpoint:
 
 Route: PUT /licensePlates/assign/:vin
 
@@ -96,30 +103,41 @@ Implemented rate limiting to prevent abuse.
 
 ## ⚙️ Setup Instructions
 
-🔧 Prerequisites:
+### 🔧 Prerequisites:
 
 Ensure you have the following installed:
 
 Node.js (Latest LTS version)
 
-MongoDB or PostgreSQL (based on your database choice)
+MongoDB Atlas (or a local MongoDB instance)
 
-## 🚀 Installation Steps:
+### 🚀 Installation Steps:
 
 1️⃣ Clone the repository:
 
+   git clone https://github.com/johntrinhnhat/johntrinhnhat-COMP9784-101137420-Final-Project.git
+
 2️⃣ Navigate to the project root directory:
+
+   cd COMP9784-101137420-Final-Project
 
 3️⃣ Install dependencies:
 
-`npm install`
+   npm install
 
-4️⃣ Set up environment variables: Create a .env file in the root directory.
+4️⃣ Set up environment variables:
 
+Create a .env file in the root directory.
+
+Add necessary variables:
+
+DB_CONNECTION=<your_database_url>
+JWT_SECRET=<your_jwt_secret>
+EMAIL_SERVICE=<your_email_service>
 
 5️⃣ Run the server:
 
-`npm start dev`
+   npm run dev
 
 📤 Submission Details
 
@@ -127,8 +145,10 @@ MongoDB or PostgreSQL (based on your database choice)
 
 Repository Name: COMP9784-101137420-Final-Project
 
-GitHub URL: [](https://github.com/johntrinhnhat/johntrinhnhat-COMP9784-101137420-Final-Project/tree/main)
+GitHub URL: COMP9784-101137420-Final-Project
 
-📧 Email contact: johntrinhnhat@gmail.com
+📧 Email Contact:
+
+Email: johntrinhnhat@gmail.com
 
 Subject: COMP9784 Final Project Submission - KHOI NHAT TRINH
