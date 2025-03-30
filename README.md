@@ -21,6 +21,14 @@ This project implements a backend API using Express.js with ***MongoDB Atlas*** 
 
 ## API Endpoint:
 
+> Route: GET /users
+
+### Functionality:
+
++ Get all users data
++ Pagination: limit=10
++ Parameter: sort and filter
+
 > Route: POST /user/signup
 
 ### Functionality:
@@ -32,7 +40,6 @@ This project implements a backend API using Express.js with ***MongoDB Atlas*** 
 + Generates a JWT activation token.
 
 + Sends an email with an activation link.
-
 
 > Route: GET /user/activate/:email/:activationToken
 
@@ -51,35 +58,48 @@ This project implements a backend API using Express.js with ***MongoDB Atlas*** 
 
 # **♥ PROJECT 2: License Plate Backend**
 
-📝 License Plate Assignment Table:
+📝 License Plate Assignment Table (collection):
+`
+{
+   licensePlate: "VXND215",
+   status: "available",
+   dateCreated: ""
+}
+`
 
-Fields: License Plate, VIN (validated), Date Created.
 
-🔹 License Plate Assignment API Endpoint:
+🔹  API Endpoint:
 
-Route: PUT /licensePlates/assign/:vin
-
-Functionality:
-
-Assigns the next available license plate to a given VIN.
-
-Ensures VIN validation (17 characters, no I, O, or Q).
-
-🔹 License Plate Revocation API Endpoint:
-
-Route: POST /licensePlates/revoke/:vin
+> Route: PUT /licensePlates
 
 Functionality:
 
-Revokes the assigned license plate from the given VIN.
++ Get all license plates 
 
-🔹 License Plate Verification API Endpoint:
++ pagination limit = 5.
 
-Route: GET /licensePlates/verify/:licensePlate
+
+> Route: PUT /licensePlates/assign/:vin
 
 Functionality:
 
-Checks if a given license plate is assigned or available.
++ Assigns the next available license plate to a given VIN.
+
++ Ensures VIN validation (17 characters, no I, O, or Q).
+
+
+> Route: POST /licensePlates/revoke/:vin
+
+Functionality:
+
++ Revokes the assigned license plate from the given VIN.
+
+
+> Route: GET /licensePlates/verify/:licensePlate
+
+Functionality:
+
++ Checks if a given license plate is assigned or available.
 
 ## 🔒 Security & ⚡ Performance Enhancements
 
@@ -119,19 +139,20 @@ MongoDB Atlas (or a local MongoDB instance)
 
    cd COMP9784-101137420-Final-Project
 
-3️⃣ Install dependencies:
 
-   npm install
-
-4️⃣ Set up environment variables:
+3️⃣ Set up environment variables:
 
 Create a .env file in the root directory.
 
 Add necessary variables:
 
-DB_CONNECTION=<your_database_url>
-JWT_SECRET=<your_jwt_secret>
-EMAIL_SERVICE=<your_email_service>
++ DB_CONNECTION=<your_database_url>
++ JWT_SECRET=<your_jwt_secret>
++ EMAIL_SERVICE=<your_email_service>
+
+4️⃣ Install dependencies:
+
+   npm install
 
 5️⃣ Run the server:
 
@@ -143,7 +164,7 @@ EMAIL_SERVICE=<your_email_service>
 
 Repository Name: COMP9784-101137420-Final-Project
 
-GitHub URL: COMP9784-101137420-Final-Project
+GitHub URL: [COMP9784-101137420-Final-Project](https://github.com/johntrinhnhat/johntrinhnhat-COMP9784-101137420-Final-Project)
 
 📧 Email Contact:
 

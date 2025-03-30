@@ -21,7 +21,7 @@ app.use((0, helmet_1.default)());
 app.use((0, compression_1.default)());
 app.use(rateLimit_1.RateLimit);
 app.use((0, morgan_1.default)("dev"));
-app.use("/LP", licenseRoutes_1.router);
+app.use("/licensePlates", licenseRoutes_1.router);
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 app.listen(PORT, () => {
     console.log(`The server is running on port ${PORT} ...`);

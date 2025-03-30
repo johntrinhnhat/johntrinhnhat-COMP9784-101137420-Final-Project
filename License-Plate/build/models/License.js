@@ -17,5 +17,10 @@ const LPSchema = new mongoose_1.default.Schema({
         enum: ["available", "revoked", "assigned"],
         default: "available",
     },
+    dateCreated: {
+        type: Date,
+        default: Date.now,
+        immutable: true,
+    },
 }, { collection: "License" });
 exports.LP = mongoose_1.default.model("LP", LPSchema);

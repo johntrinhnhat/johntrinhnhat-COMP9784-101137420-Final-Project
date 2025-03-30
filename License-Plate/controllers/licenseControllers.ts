@@ -3,8 +3,11 @@ import { LP } from "../models/License";
 import { LPAssigned } from "../models/LicenseAssigned";
 
 export const getLP = async (req: Request, res: Response): Promise<any> => {
+  const page: number = parseInt(req.query.page as string) || 1;
+  const limit: number = parseInt(req.query.limit as string) || 5;
+
   try {
-    const LicensePlate = await LP.find({});
+    const LicensePlate = await LP.find({}).limit(limit);
     console.log("License Plates:", LicensePlate);
 
     if (LicensePlate.length === 0) {
@@ -87,7 +90,7 @@ export const assignLP = async (req: Request, res: Response): Promise<any> => {
         message: "No available license plates to assign.",
       });
     }
-    
+
     const newLPAssign = new LPAssigned({
       licensePlate: nextAvailableLP.licensePlate,
       vin,

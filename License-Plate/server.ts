@@ -21,15 +21,7 @@ app.use(compression());
 app.use(RateLimit);
 app.use(morgan("dev"));
 
-app.use("/LP", router);
-
-// app.use((err: Error, req: Request, res: Response, next: NextFunction): any => {
-//   console.error(err.stack);
-//   return res.status(500).json({
-//     status: "error",
-//     message: err.message || "Request timed out.",
-//   });
-// });
+app.use("/licensePlates", router);
 
 const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 app.listen(PORT, () => {

@@ -13,6 +13,12 @@ const LPSchema = new mongoose.Schema(
       enum: ["available", "revoked", "assigned"],
       default: "available",
     },
+
+    dateCreated: {
+      type: Date,
+      default: Date.now,
+      immutable: true,
+    },
   },
   { collection: "License" }
 );

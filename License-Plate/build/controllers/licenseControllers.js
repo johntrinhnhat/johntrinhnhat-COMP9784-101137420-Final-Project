@@ -13,8 +13,10 @@ exports.verifyLP = exports.revokeLP = exports.assignLP = exports.getLPAssigned =
 const License_1 = require("../models/License");
 const LicenseAssigned_1 = require("../models/LicenseAssigned");
 const getLP = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 5;
     try {
-        const LicensePlate = yield License_1.LP.find({});
+        const LicensePlate = yield License_1.LP.find({}).limit(limit);
         console.log("License Plates:", LicensePlate);
         if (LicensePlate.length === 0) {
             return res.status(404).json({
