@@ -1,173 +1,122 @@
-# COMP9784 Final Project
+# 📌 COMP9784 Final Project
 
-## 📌 Project Overview
+## 🔍 Project Overview
 
-This project implements a backend API using Express.js with ***MongoDB Atlas*** and ***Mongoose*** integration. It includes user authentication, authorization, and license plate management with proper data validation and security measures.
+This project implements a backend API using **Express.js**, **MongoDB Atlas**, and **Mongoose** for user authentication, authorization, and license plate management. It includes robust data validation, security measures, and performance optimizations.
 
 ## ✅ Implemented Features
 
-# **♥ PROJECT 1: User Sign-Up Backend**
+### ♥ **PROJECT 1: User Sign-Up Backend**
 
-📝 User Registration Table (collection):
-
-`{
-    firstName: "Khoi",
-    lastName: "Trinh",
-    email: "khoi.trinh@gmail.com",
-    password: "ABCD1234",
-    emailVerified: false
-}`
-
-
-## API Endpoint:
-
-> Route: GET /users
-
-### Functionality:
-
-+ Get all users data
-+ Pagination: limit=10
-+ Parameter: sort and filter
-
-> Route: POST /user/signup
-
-### Functionality:
-
-+ Stores user details in the database.
-
-+ Hashes the password before saving.
-
-+ Generates a JWT activation token.
-
-+ Sends an email with an activation link.
-
-> Route: GET /user/activate/:email/:activationToken
-
-### Functionality:
-
-+ Validates and decodes the activation token.
-
-+ Updates the Email Verified field upon successful validation.
-
-
-> Route: GET /user/sendActivationToken/:email
-
-### Functionality:
-
-+ Generates and sends a new activation token if the email is not verified.
-
-# **♥ PROJECT 2: License Plate Backend**
-
-📝 License Plate Assignment Table (collection):
-`
+📜 **User Registration Collection Schema:**
+```json
 {
-   licensePlate: "VXND215",
-   status: "available",
-   dateCreated: ""
+    "firstName": "Khoi",
+    "lastName": "Trinh",
+    "email": "johntrinhnhat@gmail.com",
+    "password": "hashed_password",
+    "emailVerified": false
 }
-`
+```
 
+🛠️ **API Endpoints:**
 
-🔹  API Endpoint:
+🔹 **`GET /users`**  
+- Retrieve all users with pagination (limit=10), sorting, and filtering.
 
-> Route: PUT /licensePlates
+🔹 **`POST /user/signup`**  
+- Register a user, hash the password, generate a JWT activation token, and send an activation email.
 
-Functionality:
+🔹 **`GET /user/activate/:email/:activationToken`**  
+- Validate and activate a user's email.
 
-+ Get all license plates 
+🔹 **`GET /user/sendActivationToken/:email`**  
+- Resend an activation token if the email is not verified.
 
-+ pagination limit = 5.
+---
 
+### ♥ **PROJECT 2: License Plate Backend**
 
-> Route: PUT /licensePlates/assign/:vin
+📜 **License Plate Collection Schema:**
+```json
+{
+   "licensePlate": "VXND215",
+   "status": "available",
+   "dateCreated": ""
+}
+```
 
-Functionality:
+🛠️ **API Endpoints:**
 
-+ Assigns the next available license plate to a given VIN.
+🔹 **`PUT /licensePlates`**  
+- Retrieve all license plates with pagination (limit=5).
 
-+ Ensures VIN validation (17 characters, no I, O, or Q).
+🔹 **`PUT /licensePlates/assign/:vin`**  
+- Assign the next available license plate to a VIN (validated to 17 characters, excluding I, O, and Q).
 
+🔹 **`POST /licensePlates/revoke/:vin`**  
+- Revoke an assigned license plate.
 
-> Route: POST /licensePlates/revoke/:vin
+🔹 **`GET /licensePlates/verify/:licensePlate`**  
+- Check if a license plate is assigned or available.
 
-Functionality:
-
-+ Revokes the assigned license plate from the given VIN.
-
-
-> Route: GET /licensePlates/verify/:licensePlate
-
-Functionality:
-
-+ Checks if a given license plate is assigned or available.
+---
 
 ## 🔒 Security & ⚡ Performance Enhancements
 
-API Security:
+🛡️ **Security Measures:**
+- 🔑 API Key authentication for restricted access.
+- 🛠️ Helmet middleware for security headers.
+- ✅ Regular expressions for email, VIN, and license plate validation.
 
-Implemented API Keys for restricted access.
+🚀 **Performance Optimizations:**
+- 📉 Response compression enabled.
+- ⏳ Rate limiting implemented to prevent abuse.
 
-Used Helmet for security headers.
-
-Input Validation:
-
-Regular expressions to validate email, VIN, and license plate formats.
-
-Performance Optimization:
-
-Enabled response compression.
-
-Implemented rate limiting to prevent abuse.
+---
 
 ## ⚙️ Setup Instructions
 
-### 🔧 Prerequisites:
+### 🔧 **Prerequisites:**
+- 🖥️ Node.js (Latest LTS version)
+- 🗄️ MongoDB Atlas (or a local MongoDB instance)
 
-Ensure you have the following installed:
+### 🚀 **Installation Steps:**
 
-Node.js (Latest LTS version)
-
-MongoDB Atlas (or a local MongoDB instance)
-
-### 🚀 Installation Steps:
-
-1️⃣ Clone the repository:
-
+1️⃣ **Clone the repository:**  
+   ```bash
    git clone https://github.com/johntrinhnhat/johntrinhnhat-COMP9784-101137420-Final-Project.git
+   ```
 
-2️⃣ Navigate to the project root directory:
-
+2️⃣ **Navigate to the project directory:**  
+   ```bash
    cd COMP9784-101137420-Final-Project
+   ```
 
+3️⃣ **Set up environment variables:**  
+   Create a `.env` file in the root directory with the following variables:
+   ```bash
+   DB_CONNECTION=<your_database_url>
+   JWT_SECRET=<your_jwt_secret>
+   EMAIL_SERVICE=<your_email_service>
+   ```
 
-3️⃣ Set up environment variables:
-
-Create a .env file in the root directory.
-
-Add necessary variables:
-
-+ DB_CONNECTION=<your_database_url>
-+ JWT_SECRET=<your_jwt_secret>
-+ EMAIL_SERVICE=<your_email_service>
-
-4️⃣ Install dependencies:
-
+4️⃣ **Install dependencies:**  
+   ```bash
    npm install
+   ```
 
-5️⃣ Run the server:
-
+5️⃣ **Run the server:**  
+   ```bash
    npm run dev
+   ```
 
-📤 Submission Details
+---
 
-📂 GitHub Repository:
+## 📤 Submission Details
 
-Repository Name: COMP9784-101137420-Final-Project
+📂 **GitHub Repository:** [COMP9784-101137420-Final-Project](https://github.com/johntrinhnhat/johntrinhnhat-COMP9784-101137420-Final-Project)
 
-GitHub URL: [COMP9784-101137420-Final-Project](https://github.com/johntrinhnhat/johntrinhnhat-COMP9784-101137420-Final-Project)
+📧 **Contact Email:** johntrinhnhat@gmail.com  
+📌 **Subject:** COMP9784 Final Project Submission - KHOI NHAT TRINH
 
-📧 Email Contact:
-
-Email: johntrinhnhat@gmail.com
-
-Subject: COMP9784 Final Project Submission - KHOI NHAT TRINH
