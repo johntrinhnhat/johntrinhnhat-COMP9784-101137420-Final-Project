@@ -105,11 +105,11 @@ git clone https://github.com/johntrinhnhat/johntrinhnhat-COMP9784-101137420-Fina
 2️⃣ **Navigate to the project directory:**
 
 ```bash
-cd COMP9784-101137420-Final-Project\/License-Plate
+cd COMP9784-101137420-Final-Project\License-Plate
 ```
 
 ```bash
-cd COMP9784-101137420-Final-Project\/User-Sign-Up
+cd COMP9784-101137420-Final-Project\User-Sign-Up
 ```
 
 3️⃣ **Set up environment variables:**  
