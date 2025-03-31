@@ -66,7 +66,7 @@ This project implements a backend API using **Express.js**, **MongoDB Atlas**, a
 
 🛡️ **Security Measures:**
 - 🔑 API Key authentication for restricted access.
-- 🛠️ Helmet middleware for security headers.
+- 🛠️ Helmet, RateLimit middleware for security headers.
 - ✅ Regular expressions for email, VIN, and license plate validation.
 
 🚀 **Performance Optimizations:**
