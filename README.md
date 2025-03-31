@@ -9,28 +9,33 @@ This project implements a backend API using **Express.js**, **MongoDB Atlas**, a
 ### ♥ **PROJECT 1: User Sign-Up Backend**
 
 📜 **User Registration Collection Schema:**
+
 ```json
 {
-    "firstName": "Khoi",
-    "lastName": "Trinh",
-    "email": "johntrinhnhat@gmail.com",
-    "password": "hashed_password",
-    "emailVerified": false
+  "firstName": "Khoi",
+  "lastName": "Trinh",
+  "email": "johntrinhnhat@gmail.com",
+  "password": "hashed_password",
+  "emailVerified": false
 }
 ```
 
 🛠️ **API Endpoints:**
 
-🔹 **`GET /users`**  
+🔹 **`GET /users`**
+
 - Retrieve all users with pagination (limit=10), sorting, and filtering.
 
-🔹 **`POST /user/signup`**  
+🔹 **`POST /user/signup`**
+
 - Register a user, hash the password, generate a JWT activation token, and send an activation email.
 
-🔹 **`GET /user/activate/:email/:activationToken`**  
+🔹 **`GET /user/activate/:email/:activationToken`**
+
 - Validate and activate a user's email.
 
-🔹 **`GET /user/sendActivationToken/:email`**  
+🔹 **`GET /user/sendActivationToken/:email`**
+
 - Resend an activation token if the email is not verified.
 
 ---
@@ -38,26 +43,31 @@ This project implements a backend API using **Express.js**, **MongoDB Atlas**, a
 ### ♥ **PROJECT 2: License Plate Backend**
 
 📜 **License Plate Collection Schema:**
+
 ```json
 {
-   "licensePlate": "VXND215",
-   "status": "available",
-   "dateCreated": ""
+  "licensePlate": "VXND215",
+  "status": "available",
+  "dateCreated": ""
 }
 ```
 
 🛠️ **API Endpoints:**
 
-🔹 **`PUT /licensePlates`**  
+🔹 **`PUT /licensePlates`**
+
 - Retrieve all license plates with pagination (limit=5).
 
-🔹 **`PUT /licensePlates/assign/:vin`**  
+🔹 **`PUT /licensePlates/assign/:vin`**
+
 - Assign the next available license plate to a VIN (validated to 17 characters, excluding I, O, and Q).
 
-🔹 **`POST /licensePlates/revoke/:vin`**  
+🔹 **`POST /licensePlates/revoke/:vin`**
+
 - Revoke an assigned license plate.
 
-🔹 **`GET /licensePlates/verify/:licensePlate`**  
+🔹 **`GET /licensePlates/verify/:licensePlate`**
+
 - Check if a license plate is assigned or available.
 
 ---
@@ -65,11 +75,13 @@ This project implements a backend API using **Express.js**, **MongoDB Atlas**, a
 ## 🔒 Security & ⚡ Performance Enhancements
 
 🛡️ **Security Measures:**
+
 - 🔑 API Key authentication for restricted access.
 - 🛠️ Helmet, RateLimit middleware for security headers.
 - ✅ Regular expressions for email, VIN, and license plate validation.
 
 🚀 **Performance Optimizations:**
+
 - 📉 Response compression enabled.
 - ⏳ Rate limiting implemented to prevent abuse.
 
@@ -78,38 +90,48 @@ This project implements a backend API using **Express.js**, **MongoDB Atlas**, a
 ## ⚙️ Setup Instructions
 
 ### 🔧 **Prerequisites:**
+
 - 🖥️ Node.js (Latest LTS version)
 - 🗄️ MongoDB Atlas (or a local MongoDB instance)
 
 ### 🚀 **Installation Steps:**
 
-1️⃣ **Clone the repository:**  
-   ```bash
-   git clone https://github.com/johntrinhnhat/johntrinhnhat-COMP9784-101137420-Final-Project.git
-   ```
+1️⃣ **Clone the repository:**
 
-2️⃣ **Navigate to the project directory:**  
-   ```bash
-   cd COMP9784-101137420-Final-Project
-   ```
+```bash
+git clone https://github.com/johntrinhnhat/johntrinhnhat-COMP9784-101137420-Final-Project.git
+```
+
+2️⃣ **Navigate to the project directory:**
+
+```bash
+cd COMP9784-101137420-Final-Project\/License-Plate
+```
+
+```bash
+cd COMP9784-101137420-Final-Project\/User-Sign-Up
+```
 
 3️⃣ **Set up environment variables:**  
-   Create a `.env` file in the root directory with the following variables:
-   ```bash
-   DB_CONNECTION=<your_database_url>
-   JWT_SECRET=<your_jwt_secret>
-   EMAIL_SERVICE=<your_email_service>
-   ```
+ Create a `.env` file in the root directory with the following variables:
 
-4️⃣ **Install dependencies:**  
-   ```bash
-   npm install
-   ```
+```bash
+DB_CONNECTION=<your_database_url>
+JWT_SECRET=<your_jwt_secret>
+EMAIL_SERVICE=<your_email_service>
+```
 
-5️⃣ **Run the server:**  
-   ```bash
-   npm run dev
-   ```
+4️⃣ **Install dependencies:**
+
+```bash
+npm install
+```
+
+5️⃣ **Run the server:**
+
+```bash
+npm run dev
+```
 
 ---
 
@@ -119,4 +141,3 @@ This project implements a backend API using **Express.js**, **MongoDB Atlas**, a
 
 📧 **Contact Email:** johntrinhnhat@gmail.com  
 📌 **Subject:** COMP9784 Final Project Submission - KHOI NHAT TRINH
-
